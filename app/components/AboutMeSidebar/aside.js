@@ -5,7 +5,10 @@ const Aside = styled.aside`
   width: 300px;
   height: 100vh;
   background-color: #6ac2b9;
-  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  
 `
 
 export default Aside;
