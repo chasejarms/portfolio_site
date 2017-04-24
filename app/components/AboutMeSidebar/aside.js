@@ -8,7 +8,6 @@ const Aside = styled.aside`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  
 `
 
 export default Aside;

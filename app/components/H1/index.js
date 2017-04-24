@@ -7,7 +7,7 @@ const H1 = styled.h1`
   -webkit-margin-after: 0;
   font-weight: 400;
   line-height: 1.2;
-  color: white;
+  color: #288B80;
   text-align: center;
 `
 

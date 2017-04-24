@@ -1,9 +1,10 @@
 import React from 'react';
+import Image from '../Image';
 
 class ProfilePicture extends React.PureComponent {
   render () {
     return (
-      <p>Profile picture</p>
+      <Image src='../../assets/profile_picture.jpg' />
     )
   }
 }
