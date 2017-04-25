@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 const I = styled.i`
   pointer: cursor;
-  font-size: 30px;
-  color: ${props => props.theme.primaryOne};
+  font-size: ${props => props.fontSize || '30px'};
+  color: ${props => props.color || props.theme.primaryOne};
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(${props => props.scale || 1.2});
   }
 `
 
