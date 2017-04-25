@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-const H1 = styled.h1`
-  font-size: 28px;
+const H4 = styled.h4`
+  font-size: 22px;
   font-family: ${props => props.theme.fontFamily};
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   font-weight: 400;
   line-height: 1.2;
-  color: #288B80;
+  color: ${props => props.theme.primaryOne};
+  padding-top: 0px;
   text-align: center;
+  font-style: italic;
 `
 
-export default H1;
+export default H4;

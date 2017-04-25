@@ -12,11 +12,16 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import AboutMeSidebar from '../../components/AboutMeSidebar';
+import PortfolioContainer from '../../components/PortfolioContainer';
+import Wrapper from '../../components/Wrapper';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <AboutMeSidebar />
+      <Wrapper>
+        <AboutMeSidebar />
+        <PortfolioContainer />
+      </Wrapper>
     );
   }
 }
