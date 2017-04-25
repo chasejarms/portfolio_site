@@ -18,7 +18,7 @@ import Wrapper from '../../components/Wrapper';
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <Wrapper>
+      <Wrapper wrapperHeight='100vh'>
         <AboutMeSidebar />
         <PortfolioContainer />
       </Wrapper>

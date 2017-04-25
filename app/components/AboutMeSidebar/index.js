@@ -17,16 +17,11 @@ export default class AboutMeSidebar extends React.PureComponent {
           <H4>Software Engineer</H4>
           <P>
             I love golfing, spending time with friends and family, and watching the Utah Jazz.
-            I find happiness in pushing myself to be the best software engineer I can be and in making those around me laugh.
-          </P>
-          <P>
-            From a professional standpoint, I'm addicted to React with Redux
-            and would love to contribute to the core at some point. I also have
-            experience with Ruby on Rails, SQL, HTML5, and CSS3.
+            As well, Im addicted to React with Redux and would love to contribute to the core at some point.
           </P>
         </div>
         <Wrapper flexDirection='row' alignItems='flex-end'>
-          <Wrapper justifyContent='space-between'>
+          <Wrapper justifyContent='space-between' alignItems='flex-end'>
             <LinkIcon href='https://github.com/chasejarms' iconClass='fa fa-github'></LinkIcon>
             <LinkIcon href='https://www.linkedin.com/in/chasearmstrong/' iconClass='fa fa-linkedin'></LinkIcon>
             <LinkIcon href='mailto:chasejarms@gmail.com' iconClass='fa fa-envelope'></LinkIcon>

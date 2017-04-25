@@ -1,10 +1,16 @@
 import React from 'react';
-import Wrapper from '../Wrapper';
+import PortfolioItem from '../PortfolioItem';
 
 const PortfolioContainer = (props) => {
   return (
-    <Wrapper></Wrapper>
+    <PortfolioItem />
   )
 }
 
 export default PortfolioContainer;
+
+
+/*
+
+
+*/
