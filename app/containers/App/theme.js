@@ -1,6 +1,6 @@
 const theme = {
   color: 'black',
-  fontFamily: 'Arial, Helvetica, san-serif',
+  fontFamily: 'Montserrat, sans-serif',
   reset: 0,
   primaryOne: '#070707',
   primaryTwo: '#6ac2b9'

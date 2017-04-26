@@ -1,13 +1,18 @@
 import styled from 'styled-components';
 
 const BackgroundImage = styled.img`
-  background-image: url(${props => props.backgroundImage});
-  background-repeat: ${props => props.backgroundRepeat || 'no-repeat'};
-  background-size: ${props => props.backgroundSize || 'cover'};
   width: ${props => props.width || '100%'};
-  height: ${props => props.height || '100%'};
-  background-position-x: ${props => props.backgroundPositionX || 'right'};
-  background-position-y: ${props => props.backgroundPositionY || 'right'};
+  height: ${props => props.height || 'auto'};
+  flex: 1;
+  background-position-x: ${props => props.backgroundPositionX || 'center'};
+  background-position-y: ${props => props.backgroundPositionY || 'center'};
+  transition: all .3s ease-in-out;
+  &:hover {
+    background-size: 100%;
+    background-color: black;
+    opacity: .2;
+    cursor: pointer;
+  }
 `
 
 export default BackgroundImage;

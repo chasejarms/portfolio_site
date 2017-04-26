@@ -11,9 +11,10 @@ class LanguageIcons extends React.PureComponent {
   render () {
     const properties = Object.keys(this.props);
     const propCount = properties.length;
-    const icons = properties.map(prop => {
+    const icons = properties.map((prop, idx) => {
       return <I
-        fontSize={`${propCount / .8}em`}
+        key={idx}
+        fontSize={`${20 / propCount}vh`}
         color='#e20144'
         scale='1.0'
         className={this._correctIcon(prop)}></I>;
@@ -21,10 +22,11 @@ class LanguageIcons extends React.PureComponent {
 
     return (
       <Wrapper
+        backgroundColor='white'
         justifyContent='space-between'
         flexDirection='column'
-        flex='0 0 50px'
-        padding='0 0 0 40px'>
+        flex='1 1 100px'
+        padding='0 0 0 0'>
         { icons }
       </Wrapper>
     )

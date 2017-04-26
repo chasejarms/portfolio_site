@@ -12,13 +12,9 @@ export default class AboutMeSidebar extends React.PureComponent {
     return (
       <Aside>
         <div>
-          <ProfilePicture />
           <H3>Chase Armstrong</H3>
           <H4>Software Engineer</H4>
-          <P>
-            I love golfing, spending time with friends and family, and watching the Utah Jazz.
-            As well, Im addicted to React with Redux and would love to contribute to the core at some point.
-          </P>
+
         </div>
         <Wrapper flexDirection='row' alignItems='flex-end'>
           <Wrapper justifyContent='space-between' alignItems='flex-end'>

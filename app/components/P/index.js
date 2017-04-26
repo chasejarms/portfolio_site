@@ -9,6 +9,7 @@ const P = styled.p`
   padding-top: 20px;
   color: ${props => props.theme.primaryOne};
   text-align: left;
+  font-weight: 300;
 `
 
 export default P;
