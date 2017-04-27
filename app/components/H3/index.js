@@ -8,7 +8,7 @@ const H3 = styled.h3`
   font-weight: 500;
   line-height: 1.2;
   color: ${props => props.theme.primaryOne};
-  padding: 0 0 10px 0;
+  padding: 30px 0 10px 0;
   text-align: center;
 `
 

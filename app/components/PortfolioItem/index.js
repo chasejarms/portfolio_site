@@ -1,7 +1,7 @@
 import React from 'react';
 import Wrapper from '../Wrapper';
-import BackgroundImageAndIcons from '../BackgroundImageAndIcons';
-import ProjectTitleAndDescription from '../ProjectTitleAndDescription';
+import BackgroundImage from '../BackgroundImage';
+import LanguageIcons from '../LanguageIcons';
 
 class PortfolioItem extends React.PureComponent {
   constructor(props) {
@@ -10,15 +10,10 @@ class PortfolioItem extends React.PureComponent {
 
   render() {
     return (
-      <Wrapper flexDirection='row' wrapperHeight='100vh' backgroundColor='white' padding='40px'>
+      <Wrapper flexDirection='row' wrapperHeight='100vh' backgroundColor='white'>
         <Wrapper flexDirection='column' justifyContent='space-between'>
-          <ProjectTitleAndDescription />
-          <BackgroundImageAndIcons>
-            Babelr is a chat app that eliminates the language barrier for international
-            collaborators. I built out numerous React Native components, authored multiple
-            Redux cycles, and integrated with React Native Router Flux and React Native
-            Swiper.
-          </BackgroundImageAndIcons>
+          <BackgroundImage />
+          <LanguageIcons React Git Ruby HTML5/>
         </Wrapper>
       </Wrapper>
     )

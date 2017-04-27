@@ -14,19 +14,20 @@ class LanguageIcons extends React.PureComponent {
     const icons = properties.map((prop, idx) => {
       return <I
         key={idx}
-        fontSize={`${20 / propCount}vh`}
-        color='#e20144'
+        fontSize={`${20 / propCount}vw`}
+        color='white'
         scale='1.0'
         className={this._correctIcon(prop)}></I>;
     });
 
     return (
       <Wrapper
-        backgroundColor='white'
-        justifyContent='space-between'
-        flexDirection='column'
-        flex='1 1 100px'
-        padding='0 0 0 0'>
+        justifyContent='space-around'
+        flex='1 0 100px'
+        padding='0 0 0 0'
+        backgroundColor='#e20144'
+        alignItems='center'
+        >
         { icons }
       </Wrapper>
     )

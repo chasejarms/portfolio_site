@@ -12,6 +12,7 @@ export default class AboutMeSidebar extends React.PureComponent {
     return (
       <Aside>
         <div>
+          <ProfilePicture />
           <H3>Chase Armstrong</H3>
           <H4>Software Engineer</H4>
 

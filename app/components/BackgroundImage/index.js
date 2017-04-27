@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import Wrapper from '../Wrapper';
+import React from 'react';
 
-const BackgroundImage = styled.img`
+const StyledImage = styled.img`
   width: ${props => props.width || '100%'};
   height: ${props => props.height || 'auto'};
   flex: 1;
@@ -14,5 +16,14 @@ const BackgroundImage = styled.img`
     cursor: pointer;
   }
 `
+const BackgroundImage = (props) => {
+  return (
+    <Wrapper display='block' backgroundColor='black' flex='0 0'>
+    <StyledImage
+      src='https://s3-us-west-1.amazonaws.com/portfolio-bucket-chase-armstrong/Screen+Shot+2017-04-17+at+4.40.49+PM.png'
+    />
+    </Wrapper>
+  )
+}
 
 export default BackgroundImage;
