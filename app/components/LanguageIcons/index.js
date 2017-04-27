@@ -27,7 +27,7 @@ class LanguageIcons extends React.PureComponent {
         padding='0 0 0 0'
         backgroundColor='#e20144'
         alignItems='center'
-        >
+        > 
         { icons }
       </Wrapper>
     )
