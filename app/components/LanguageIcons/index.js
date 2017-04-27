@@ -15,7 +15,7 @@ class LanguageIcons extends React.PureComponent {
       return <I
         key={idx}
         fontSize={`${20 / propCount}vw`}
-        color='white'
+        color={this.props.iconColor}
         scale='1.0'
         className={this._correctIcon(prop)}></I>;
     });
@@ -27,6 +27,7 @@ class LanguageIcons extends React.PureComponent {
         padding='0 0 0 0'
         backgroundColor='#e20144'
         alignItems='center'
+        backgroundColor={this.props.languageBackground}
         >
         { icons }
       </Wrapper>

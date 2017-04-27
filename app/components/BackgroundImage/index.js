@@ -12,7 +12,7 @@ const StyledImage = styled.img`
   &:hover {
     background-size: 100%;
     background-color: black;
-    opacity: .2;
+    opacity: 1;
     cursor: pointer;
   }
 `
