@@ -12,6 +12,12 @@ const Wrapper = styled.div`
   padding: ${props => props.padding || '0'};
   background-color: ${props => props.backgroundColor || 'inherit'};
   box-sizing: ${props => props.boxSizing || 'border-box'};
+  overflow: ${props => props.overflow || 'default'};
+  overflow-y: ${props => props.overflowY || 'none'};
+  ::-webkit-scrollbar {
+    width: 0px;
+    background-color: transparent;
+  }
 `
 
 export default Wrapper;
