@@ -8,12 +8,8 @@ const PortfolioContainer = (props) => {
       <PortfolioItem
         backgroundColor='black'
         imageUrl='https://s3-us-west-1.amazonaws.com/portfolio-bucket-chase-armstrong/Screen+Shot+2017-04-17+at+4.40.49+PM.png'
-        React
-        Ruby
-        HTML5
-        CSS3
+        icons={['React', 'HTML5', 'Ruby', 'CSS3']}
         />
-      <PortfolioItem image icons backgroundColor />
     </Wrapper>
   )
 }

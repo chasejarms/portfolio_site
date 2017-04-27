@@ -9,9 +9,9 @@ class LanguageIcons extends React.PureComponent {
   }
 
   render () {
-    const properties = Object.keys(this.props);
-    const propCount = properties.length;
-    const icons = properties.map((prop, idx) => {
+    console.log(this.props);
+    const propCount = this.props.icons.length;
+    const icons = this.props.icons.map((prop, idx) => {
       return <I
         key={idx}
         fontSize={`${20 / propCount}vw`}
