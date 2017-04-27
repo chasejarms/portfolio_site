@@ -9,11 +9,17 @@ class PortfolioItem extends React.PureComponent {
   }
 
   render() {
+    const { backgroundColor, imageUrl } = this.props;
     return (
       <Wrapper flexDirection='row' wrapperHeight='100vh' wrapperWidth='calc(100vw - 300px)' backgroundColor='white'>
         <Wrapper flexDirection='column' justifyContent='space-between'>
-          <BackgroundImage />
-          <LanguageIcons React Git Ruby HTML5/>
+          <BackgroundImage
+            imageUrl={imageUrl}
+            backgroundColor={backgroundColor}
+            />
+          <LanguageIcons
+
+            />
         </Wrapper>
       </Wrapper>
     )
