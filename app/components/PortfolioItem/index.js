@@ -9,7 +9,7 @@ class PortfolioItem extends React.PureComponent {
   }
 
   render() {
-    const { backgroundColor, imageUrl, icons, iconColor, languageBackground } = this.props;
+    const { backgroundColor, imageUrl, icons, iconColor, languageBackground, imageLink } = this.props;
     console.log(icons);
     return (
       <Wrapper flexDirection='row' wrapperHeight='100vh' wrapperWidth='calc(100vw - 300px)' backgroundColor='white'>
@@ -17,6 +17,7 @@ class PortfolioItem extends React.PureComponent {
           <BackgroundImage
             imageUrl={imageUrl}
             backgroundColor={backgroundColor}
+            imageLink={imageLink}
             />
           <LanguageIcons
             icons={icons}

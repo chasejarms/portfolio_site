@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Wrapper from '../Wrapper';
 import React from 'react';
+import A from '../A';
 
 const StyledImage = styled.img`
   width: ${props => props.width || '100%'};
@@ -10,19 +11,18 @@ const StyledImage = styled.img`
   background-position-y: ${props => props.backgroundPositionY || 'center'};
   transition: all .3s ease-in-out;
   &:hover {
-    background-size: 100%;
-    background-color: black;
-    opacity: 1;
     cursor: pointer;
   }
 `
-const BackgroundImage = ({backgroundColor, imageUrl}) => {
+const BackgroundImage = ({backgroundColor, imageUrl, imageLink}) => {
   return (
-    <Wrapper display='block' backgroundColor={`${backgroundColor}`} flex='0 0'>
-    <StyledImage
-      src={imageUrl}
-    />
-    </Wrapper>
+    <A href={imageLink} target='_blank'>
+      <Wrapper display='block' backgroundColor={`${backgroundColor}`} flex='0 0'>
+        <StyledImage
+          src={imageUrl}
+          />
+      </Wrapper>
+    </A>
   )
 }
 

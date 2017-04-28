@@ -46,6 +46,16 @@ class LanguageIcons extends React.PureComponent {
         return 'devicon-css3-plain';
       case 'HTML5':
         return 'devicon-html5-plain';
+      case 'Babel':
+        return 'devicon-babel-plain';
+      case 'Javascript':
+        return 'devicon-javascript-plain';
+      case 'Rails':
+        return 'devicon-rails-plain';
+      case 'Chrome':
+        return 'devicon-chrome-plain';
+      case 'Firefox':
+        return 'devicon-firefox-plain';
       default:
         return '';
     }
