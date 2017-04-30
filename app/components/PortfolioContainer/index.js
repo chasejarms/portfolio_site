@@ -12,6 +12,7 @@ const PortfolioContainer = (props) => {
         iconColor='white'
         languageBackground='#e20144'
         imageLink='http://www.babelr.com/'
+        itemNumber='one'
         />
       <PortfolioItem
         backgroundColor='white'
@@ -20,6 +21,7 @@ const PortfolioContainer = (props) => {
         iconColor='white'
         languageBackground='#039be5'
         imageLink='http://www.materialyouandi.com/'
+        itemNumber='two'
         />
       <PortfolioItem
         backgroundColor='white'
@@ -28,6 +30,7 @@ const PortfolioContainer = (props) => {
         iconColor='white'
         languageBackground='#2ab27b'
         imageLink='http://www.quack.today/#/chat/general'
+        itemNumber='three'
         />
       <PortfolioItem
         backgroundColor='black'
@@ -36,6 +39,7 @@ const PortfolioContainer = (props) => {
         iconColor='white'
         languageBackground='#2c737f'
         imageLink='https://shopblushandbrulee.com/'
+        itemNumber='four'
         />
     </Wrapper>
   )
