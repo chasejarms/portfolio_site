@@ -17,51 +17,36 @@ class PortfolioContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.pageHeight = window.outerHeight;
+    this.pageHeight = document.getElementsByClassName('eDINXw')[0].clientHeight;
     this.fakeScroll = document.getElementById('scroll-handler');
     this.canScroll = true
   }
 
   handleScroll(e) {
-
-    const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
-
-    const down = e.deltaY > 0;
+    const downScroll = e.deltaY > 0;
     e.stopPropagation();
     e.preventDefault();
 
-    const { scrollPosition, scrollItems, canScroll } = this.state;
-
-    this.canScroll = false;
-
-    const scroll = () => {
-      const now = 'now' in window.performance ? performance.now() : new Date().getTime();
-      const time = Math.min(1, ((now - startTime) / 2000));
-      const timeFunction = time;
-      this.fakeScroll.style.bottom = `${Math.ceil((this.pageHeight) / time)}px`
-
-      const compareNumber = this.fakeScroll.style.bottom.match(/[0-9]+/)[0];
-      console.log(parseInt(compareNumber), (this.state.scrollPosition + this.pageHeight));
-      if (parseInt(compareNumber) === (this.state.scrollPosition)) {
-        if (down && scrollPosition < ((scrollItems - 1) * this.pageHeight) ) {
-          this.setState({
-            scrollPosition: scrollPosition + this.pageHeight
-          });
-          this.canScroll = true;
-        } else if (!down && scrollPosition > 0) {
-          this.setState({
-            scrollPosition: scrollPosition - this.pageHeight
-          });
-          this.canScroll = true;
-        }
-        return;
-      }
-
-      requestAnimationFrame(scroll);
+    if (this.canScroll) {
+      console.log(downScroll);
+      this.canScroll = false;
+      this._scrollToPosition(downScroll);
     }
+  }
 
-    scroll();
+  _scrollToPosition(downScroll) {
+    window.setTimeout(() => {
+      this.canScroll = true;
+    }, 1000);
 
+    if (downScroll) {
+      this.fakeScroll.style.top = `-${this.pageHeight}px`;
+    } else {
+      this.fakeScroll.style.top = '0px';
+    }
+  }
+
+  _recursiveScrolling() {
 
   }
 
