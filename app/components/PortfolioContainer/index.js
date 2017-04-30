@@ -9,17 +9,25 @@ import scrollIt from '../../../test.js';
 class PortfolioContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.handleScroll = this.handleScroll.bind(this);
     this.state = {
       scrollPosition: 0,
       scrollItems: 4
     }
+    this.handleScroll = this.handleScroll.bind(this);
+    this._canScrollDown = this._canScrollDown.bind(this);
+    this._canScrollUp = this._canScrollUp.bind(this);
+    this._scrollToPosition = this._scrollToPosition.bind(this);
+    this._recursiveScrollingDown = this._recursiveScrollingDown.bind(this);
+    this._recursiveScrollingUp = this._recursiveScrollingUp.bind(this);
+    this._easeInOutQuint = this._easeInOutQuint.bind(this);
   }
 
   componentDidMount() {
     this.pageHeight = document.getElementsByClassName('eDINXw')[0].clientHeight;
     this.fakeScroll = document.getElementById('scroll-handler');
+    this.fakeScroll.style.top = '0px';
     this.canScroll = true
+    this.startTime = 0;
   }
 
   handleScroll(e) {
@@ -27,27 +35,83 @@ class PortfolioContainer extends React.Component {
     e.stopPropagation();
     e.preventDefault();
 
+
     if (this.canScroll) {
-      console.log(downScroll);
+      this.startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
       this.canScroll = false;
       this._scrollToPosition(downScroll);
     }
   }
 
   _scrollToPosition(downScroll) {
-    window.setTimeout(() => {
-      this.canScroll = true;
-    }, 1000);
+    // window.setTimeout(() => {
+    //   this.canScroll = true;
+    // }, 2000);
 
-    if (downScroll) {
-      this.fakeScroll.style.top = `-${this.pageHeight}px`;
-    } else {
-      this.fakeScroll.style.top = '0px';
+    const { scrollPosition } = this.state;
+
+    if (downScroll && this._canScrollDown()) {
+      this._recursiveScrollingDown();
+    } else if (!downScroll && this._canScrollUp()){
+      console.log('trying to scroll up');
+      this._recursiveScrollingUp();
     }
   }
 
-  _recursiveScrolling() {
+  _recursiveScrollingDown() {
+    const now = 'now' in window.performance ? performance.now() : new Date().getTime();
+    const time = this._easeInOutQuint((now - this.startTime) / 1200);
+    let newScrollPosition = Math.floor(this.state.scrollPosition - (this.pageHeight * time));
+    if (newScrollPosition < this.state.scrollPosition - this.pageHeight) {
+      newScrollPosition = this.state.scrollPosition - this.pageHeight;
+    }
 
+    this.fakeScroll.style.top = `${newScrollPosition}px`;
+    if (newScrollPosition === this.state.scrollPosition - this.pageHeight) {
+      this.setState({
+        scrollPosition: this.state.scrollPosition - this.pageHeight
+      })
+      window.setTimeout(() => {
+        this.canScroll = true;
+      }, 500);
+      return;
+    }
+
+    requestAnimationFrame(this._recursiveScrollingDown);
+  }
+
+  _recursiveScrollingUp() {
+    const now = 'now' in window.performance ? performance.now() : new Date().getTime();
+    const time = this._easeInOutQuint((now - this.startTime) / 1200);
+    let newScrollPosition = Math.floor(this.state.scrollPosition + (this.pageHeight * time));
+    if (newScrollPosition > this.state.scrollPosition + this.pageHeight) {
+      newScrollPosition = this.state.scrollPosition + this.pageHeight;
+    }
+
+    this.fakeScroll.style.top = `${newScrollPosition}px`;
+    if (newScrollPosition === this.state.scrollPosition + this.pageHeight) {
+      this.setState({
+        scrollPosition: this.state.scrollPosition + this.pageHeight
+      })
+      window.setTimeout(() => {
+        this.canScroll = true;
+      }, 500);
+      return;
+    }
+
+    requestAnimationFrame(this._recursiveScrollingUp);
+  }
+
+  _easeInOutQuint(t) {
+    return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t;
+  }
+
+  _canScrollDown() {
+    return this.state.scrollPosition !== -((this.state.scrollItems - 1) * this.pageHeight);
+  }
+
+  _canScrollUp() {
+    return this.state.scrollPosition !== 0;
   }
 
   render() {
