@@ -44,23 +44,20 @@ class PortfolioContainer extends React.Component {
   }
 
   _scrollToPosition(downScroll) {
-    // window.setTimeout(() => {
-    //   this.canScroll = true;
-    // }, 2000);
-
     const { scrollPosition } = this.state;
 
     if (downScroll && this._canScrollDown()) {
       this._recursiveScrollingDown();
     } else if (!downScroll && this._canScrollUp()){
-      console.log('trying to scroll up');
       this._recursiveScrollingUp();
+    } else {
+      this.canScroll = true;
     }
   }
 
   _recursiveScrollingDown() {
     const now = 'now' in window.performance ? performance.now() : new Date().getTime();
-    const time = this._easeInOutQuint((now - this.startTime) / 1200);
+    const time = this._easeInOutQuint((now - this.startTime) / 800);
     let newScrollPosition = Math.floor(this.state.scrollPosition - (this.pageHeight * time));
     if (newScrollPosition < this.state.scrollPosition - this.pageHeight) {
       newScrollPosition = this.state.scrollPosition - this.pageHeight;
@@ -82,7 +79,7 @@ class PortfolioContainer extends React.Component {
 
   _recursiveScrollingUp() {
     const now = 'now' in window.performance ? performance.now() : new Date().getTime();
-    const time = this._easeInOutQuint((now - this.startTime) / 1200);
+    const time = this._easeInOutQuint((now - this.startTime) / 600);
     let newScrollPosition = Math.floor(this.state.scrollPosition + (this.pageHeight * time));
     if (newScrollPosition > this.state.scrollPosition + this.pageHeight) {
       newScrollPosition = this.state.scrollPosition + this.pageHeight;
@@ -136,7 +133,7 @@ class PortfolioContainer extends React.Component {
             />
           <PortfolioItem
             backgroundColor='white'
-            imageUrl='https://s3-us-west-1.amazonaws.com/portfolio-bucket-chase-armstrong/Screen+Shot+2017-04-27+at+4.20.01+PM.png'
+            imageUrl='https://s3-us-west-1.amazonaws.com/portfolio-bucket-chase-armstrong/Screen+Shot+2017-04-30+at+4.08.22+PM.png'
             icons={['Rails', 'React', 'Ruby', 'CSS3']}
             iconColor='white'
             languageBackground='#2ab27b'
