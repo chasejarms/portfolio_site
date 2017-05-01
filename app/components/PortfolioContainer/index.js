@@ -1,10 +1,6 @@
 import React from 'react';
 import PortfolioItem from '../PortfolioItem';
 import Wrapper from '../Wrapper';
-import scrollIt from '../../../test.js';
-
-// test out in here
-// add in element and see if you scroll to it
 
 class PortfolioContainer extends React.Component {
   constructor(props) {
