@@ -18,7 +18,7 @@ export default class AboutMeSidebar extends React.PureComponent {
 
         </div>
         <Wrapper flexDirection='row' alignItems='flex-end'>
-          <Wrapper justifyContent='space-between' alignItems='flex-end'>
+          <Wrapper justifyContent='space-between' alignItems='flex-end' wrapperHeight='50px'>
             <LinkIcon href='https://github.com/chasejarms' iconClass='fa fa-github'></LinkIcon>
             <LinkIcon href='https://www.linkedin.com/in/chasearmstrong/' iconClass='fa fa-linkedin'></LinkIcon>
             <LinkIcon href='mailto:chasejarms@gmail.com' iconClass='fa fa-envelope'></LinkIcon>

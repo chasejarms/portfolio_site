@@ -35,11 +35,19 @@ export default function createRoutes(store) {
       },
     }, {
       path: '*',
-      name: 'notfound',
+      name: 'all',
       getComponent(nextState, cb) {
-        import('containers/NotFoundPage')
-          .then(loadModule(cb))
-          .catch(errorLoading);
+        const importModules = Promise.all([
+          import('containers/HomePage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
       },
     },
   ];
