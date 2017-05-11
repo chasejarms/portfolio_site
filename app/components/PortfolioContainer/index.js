@@ -53,7 +53,7 @@ class PortfolioContainer extends React.Component {
 
   _recursiveScrollingDown() {
     const now = 'now' in window.performance ? performance.now() : new Date().getTime();
-    const time = this._easeInOutQuint((now - this.startTime) / 800);
+    const time = this._easeInOutQuint((now - this.startTime) / 1000);
     let newScrollPosition = Math.floor(this.state.scrollPosition - (this.pageHeight * time));
     if (newScrollPosition < this.state.scrollPosition - this.pageHeight) {
       newScrollPosition = this.state.scrollPosition - this.pageHeight;
@@ -75,7 +75,7 @@ class PortfolioContainer extends React.Component {
 
   _recursiveScrollingUp() {
     const now = 'now' in window.performance ? performance.now() : new Date().getTime();
-    const time = this._easeInOutQuint((now - this.startTime) / 600);
+    const time = this._easeInOutQuint((now - this.startTime) / 1000);
     let newScrollPosition = Math.floor(this.state.scrollPosition + (this.pageHeight * time));
     if (newScrollPosition > this.state.scrollPosition + this.pageHeight) {
       newScrollPosition = this.state.scrollPosition + this.pageHeight;
