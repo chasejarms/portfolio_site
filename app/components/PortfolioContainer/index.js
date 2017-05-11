@@ -7,7 +7,8 @@ class PortfolioContainer extends React.Component {
     super(props);
     this.state = {
       scrollPosition: 0,
-      scrollItems: 4
+      scrollItems: 4,
+      index: 0
     }
     this.handleScroll = this.handleScroll.bind(this);
     this._canScrollDown = this._canScrollDown.bind(this);
@@ -16,6 +17,7 @@ class PortfolioContainer extends React.Component {
     this._recursiveScrollingDown = this._recursiveScrollingDown.bind(this);
     this._recursiveScrollingUp = this._recursiveScrollingUp.bind(this);
     this._easeInOutQuint = this._easeInOutQuint.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +26,23 @@ class PortfolioContainer extends React.Component {
     this.fakeScroll.style.top = '0px';
     this.canScroll = true
     this.startTime = 0;
+    this.resizeTimer;
+
+    this.handleResize();
+  }
+
+  handleResize() {
+
+    window.addEventListener('resize', () => {
+      window.clearTimeout(this.resizeTimer);
+      this.resizeTimer = setTimeout(() => {
+        this.pageHeight = document.getElementsByClassName('eDINXw')[0].clientHeight;
+        this.fakeScroll.style.top = `-${this.pageHeight * this.state.index}px`;
+        this.setState({
+          scrollPosition: this.pageHeight * this.state.index * -1
+        });
+      }, 250);
+    });
   }
 
   handleScroll(e) {
@@ -62,7 +81,8 @@ class PortfolioContainer extends React.Component {
     this.fakeScroll.style.top = `${newScrollPosition}px`;
     if (newScrollPosition === this.state.scrollPosition - this.pageHeight) {
       this.setState({
-        scrollPosition: this.state.scrollPosition - this.pageHeight
+        scrollPosition: this.state.scrollPosition - this.pageHeight,
+        index: this.state.index + 1
       })
       window.setTimeout(() => {
         this.canScroll = true;
@@ -84,7 +104,8 @@ class PortfolioContainer extends React.Component {
     this.fakeScroll.style.top = `${newScrollPosition}px`;
     if (newScrollPosition === this.state.scrollPosition + this.pageHeight) {
       this.setState({
-        scrollPosition: this.state.scrollPosition + this.pageHeight
+        scrollPosition: this.state.scrollPosition + this.pageHeight,
+        index: this.state.index - 1
       })
       window.setTimeout(() => {
         this.canScroll = true;
